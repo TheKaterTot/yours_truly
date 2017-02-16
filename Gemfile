@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem "twitter-bootstrap-rails"
+gem "haml-rails"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -45,6 +46,12 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'
+end
+
+group :test do
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'faker'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
