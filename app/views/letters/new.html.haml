@@ -1,12 +1,16 @@
 %h1 Write Your Letter
+%form.form-horizontal
+  = form_for @letter do |f|
+    %div.form-group
+      %p
+        = f.label :title, class: "col-lg-2, control-label"
+      %div.col-lg-7
+        = f.text_field :title, class: "form-control"
+    %div.form-group
+      %p
+        = f.label :content, class: "col-lg-2, control-label"
+      %div.col-lg-7
+        = f.text_area :content, class: "form-control", rows: "15"
 
-= form_for @letter do |f|
-  %div
-    = f.label :title
-    = f.text_field :title
-  %div
-    = f.label :content
-    = f.text_area :content
-
-  %fieldset
-    = f.submit "Sincerely, #{current_user.name}"
+    %fieldset
+      = f.submit "Yours Truly, #{current_user.name}", class: "btn, btn-primary"

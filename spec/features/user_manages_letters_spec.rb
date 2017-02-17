@@ -11,7 +11,7 @@ feature "user manages letter" do
 
       fill_in "letter[title]", with: "Dear John"
       fill_in "letter[content]", with: "Goodbye forever."
-      click_on "Sincerely, #{user.name}"
+      click_on "Yours Truly, #{user.name}"
 
       expect(current_path).to eq(letter_path(user.letters.last))
       expect(page).to have_content("Dear John")
