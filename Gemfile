@@ -39,7 +39,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'pry'
   gem 'fabrication'
-  gem 'rspec-rails', '~> 3.5'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -52,6 +52,7 @@ group :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'faker'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
