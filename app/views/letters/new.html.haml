@@ -1,0 +1,12 @@
+%h1 Write Your Letter
+
+= form_for @letter do |f|
+  %div
+    = f.label :title
+    = f.text_field :title
+  %div
+    = f.label :content
+    = f.text_area :content
+
+  %fieldset
+    = f.submit "Sincerely, #{current_user.name}"
