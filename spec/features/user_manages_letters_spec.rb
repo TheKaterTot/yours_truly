@@ -57,4 +57,16 @@ feature "user manages letters" do
     expect(find(".flash")).to have_content("You shared #{letter.title} with #{user_2.email}")
   end
 
+  scenario "user shares letter with an unregistered email" do
+    login(user)
+    letter = Fabricate(:letter, owner_id: user.id)
+
+    visit letter_path(letter)
+    fill_in "Share This Letter", with: "test@example.com"
+
+    click_on "Share"
+
+    expect(find(".flash")).to have_content("This user doesn't exist.")
+  end
+
 end
