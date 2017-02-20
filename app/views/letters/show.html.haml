@@ -1,3 +1,9 @@
 %h1= "#{@letter.title}"
 %div
   = "#{@letter.content}"
+= form_tag(letter_shared_letters_path(@letter), class: "form-horizontal") do
+  %div.form-group
+    %div.col-lg-10
+      = label_tag :recipients, "Share This Letter"
+      = text_field_tag :recipients
+      = submit_tag "Share"

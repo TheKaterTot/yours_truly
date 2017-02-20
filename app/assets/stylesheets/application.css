@@ -17,3 +17,7 @@
 .flash .error {
   color: red;
 }
+
+.flash .success {
+  color: green;
+}

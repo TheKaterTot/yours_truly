@@ -35,12 +35,26 @@ feature "user manages letters" do
     visit new_letter_path
 
     select("Undying Love", :from => "Category")
-    
+
     click_on "Yours Truly, #{user.name}"
 
     expect(current_path).to eq(letter_path(user.letters.last))
     expect(page).to have_content(template.title)
     expect(page).to have_content(template.content)
+  end
+
+  scenario "user shares letter with another user" do
+    login(user)
+    user_2 = Fabricate(:user)
+    letter = Fabricate(:letter, owner_id: user.id)
+
+    visit letter_path(letter)
+    fill_in "Share This Letter", with: user_2.email
+
+    click_on "Share"
+
+    expect(user_2.letters_shared_with_me).to include(letter)
+    expect(find(".flash")).to have_content("You shared #{letter.title} with #{user_2.email}")
   end
 
 end

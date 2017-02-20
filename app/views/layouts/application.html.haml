@@ -24,5 +24,8 @@
       - if flash[:error]
         .error
           = flash[:error]
+      - if flash[:success]
+        .success
+          = flash[:success]
     %div.container
       = yield
