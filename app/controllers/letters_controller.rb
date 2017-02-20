@@ -1,4 +1,5 @@
 class LettersController < ApplicationController
+  before_action :require_login, only: [:new, :show, :create]
 
   def new
     @letter = Letter.new

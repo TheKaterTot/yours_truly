@@ -9,4 +9,6 @@ Rails.application.routes.draw do
 
   resources :users, only: [:create, :show, :destroy]
   resources :letters, only: [:new, :create, :show]
+
+  get '/templates/:id/random', to: "random_templates#show"
 end

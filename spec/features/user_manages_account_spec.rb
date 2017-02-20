@@ -33,12 +33,7 @@ end
 feature "deletes account" do
   let(:user) { Fabricate(:user) }
   scenario "they click delete" do
-    visit login_path
-
-    fill_in("Email", with: user.email)
-    fill_in("Password", with: user.password)
-
-    click_button("Login")
+    login(user)
     visit user_path(user)
 
     expect {

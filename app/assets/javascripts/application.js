@@ -14,3 +14,16 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+
+$(function() {
+  var $el = $("#template_category").on("change", function(evt) {
+    var value = $(this).val()
+    if (value !== "") {
+      var url = "/templates/" + value + "/random"
+      $.getJSON(url, function(data) {
+        $("#letter_title").val(data.title)
+        $("#letter_content").val(data.content)
+      })
+    }
+  })
+})

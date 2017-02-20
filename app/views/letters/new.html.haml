@@ -1,16 +1,19 @@
 %h1 Write Your Letter
-%form.form-horizontal
-  = form_for @letter do |f|
-    %div.form-group
-      %p
-        = f.label :title, class: "col-lg-2, control-label"
-      %div.col-lg-7
-        = f.text_field :title, class: "form-control"
-    %div.form-group
-      %p
-        = f.label :content, class: "col-lg-2, control-label"
-      %div.col-lg-7
-        = f.text_area :content, class: "form-control", rows: "15"
+= form_for @letter, html: {class: "form-horizontal"} do |f|
+  %div.form-group
+    %div.col-lg-10
+      %label(for="template_category") Category
+      = collection_select(:template, :category, Category.with_templates, :id, :name, prompt: "Select Template", class: "form-control", id: "select")
+  %div.form-group
+    %p
+      = f.label :title, class: "col-lg-2, control-label"
+    %div.col-lg-7
+      = f.text_field :title, class: "form-control"
+  %div.form-group
+    %p
+      = f.label :content, class: "col-lg-2, control-label"
+    %div.col-lg-7
+      = f.text_area :content, class: "form-control", rows: "15"
 
-    %fieldset
-      = f.submit "Yours Truly, #{current_user.name}", class: "btn, btn-primary"
+  %fieldset
+    = f.submit "Yours Truly, #{current_user.name}", class: "btn, btn-primary"
