@@ -1,5 +1,5 @@
 %h1= "#{@letter.title}"
-%div
+%div.well.well-lg
   = "#{@letter.content}"
 = form_tag(letter_shared_letters_path(@letter), class: "form-horizontal") do
   %div.form-group

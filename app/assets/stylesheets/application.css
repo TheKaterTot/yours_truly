@@ -21,3 +21,8 @@
 .flash .success {
   color: green;
 }
+
+#nav-padding {
+  padding-right: 10px;
+  line-height: 50px;
+}

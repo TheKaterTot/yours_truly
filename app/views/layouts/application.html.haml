@@ -10,15 +10,15 @@
   %body
     %nav.navbar.navbar-default
       %div.container-fluid
-        %a.navbar-brand(href="#")Yours Truly
-        %ul.nav.navbar-nav.navbar-right
+        %a.navbar-brand(href=root_path)Yours Truly
+        .nav.navbar-nav.navbar-right#nav-padding
           - if current_user
-            %li
+            %span
               Welcome, #{current_user.name}
-            %li
+            %span
               = link_to "Logout", logout_path, method: :delete
           - else
-            %li
+            %span
               = link_to "Login", login_path
     .flash
       - if flash[:error]

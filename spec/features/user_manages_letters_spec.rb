@@ -5,9 +5,11 @@ feature "user manages letters" do
   context "user is logged in" do
     scenario "user writes a letter" do
       login(user)
+      visit root_path
+      click_on "Write A New Letter"
 
-      visit new_letter_path
-
+      expect(current_path).to eq(new_letter_path)
+      
       fill_in "letter[title]", with: "Dear John"
       fill_in "letter[content]", with: "Goodbye forever."
       click_on "Yours Truly, #{user.name}"
