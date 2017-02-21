@@ -76,7 +76,7 @@ feature "user manages letters" do
     letter_2 = Fabricate(:letter, owner: user)
     Fabricate(:shared_letter, letter: letter, user: user)
 
-    visit letters_path
+    visit root_path
 
     expect(page).to have_content(letter.title)
     expect(page).to have_content(letter_2.title)
@@ -87,10 +87,9 @@ feature "user manages letters" do
     login(user)
     user_2 = Fabricate(:user)
     letter = Fabricate(:letter, title: "Pew Pew", owner_id: user_2.id)
-    letter_2 = Fabricate(:letter, owner: user)
     Fabricate(:shared_letter, letter: letter, user: user)
 
-    visit letters_path
+    visit root_path
     click_link letter.title
 
     expect(current_path).to eq(letter_path(letter))

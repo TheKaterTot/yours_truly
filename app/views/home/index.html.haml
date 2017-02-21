@@ -1,0 +1,19 @@
+- if current_user
+
+  %h3 My Letters
+
+  %div
+    - @letters.each do |letter|
+      %div
+        = link_to letter.title, letter_path(letter)
+
+  %h3 Letters Shared With Me
+
+  %div
+    - @shared_letters.each do |letter|
+      %div
+        = link_to letter.title, letter_path(letter)
+- else
+
+  %h1 Welcome to Yours Truly. Sign up for an account!
+  = link_to "Sign up!", sign_up_path

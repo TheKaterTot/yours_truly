@@ -1,10 +1,5 @@
 class LettersController < ApplicationController
-  before_action :require_login, only: [:new, :show, :create, :index]
-
-  def index
-    @letters = current_user.letters
-    @shared_letters = current_user.letters_shared_with_me
-  end
+  before_action :require_login, only: [:new, :show, :create]
 
   def new
     @letter = Letter.new
